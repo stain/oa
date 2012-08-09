@@ -118,7 +118,6 @@
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     <rdfs:comment>A resource which identifies part of another resource, a particular representation of a resource, a resource with styling hints for renders, or any combination of these.</rdfs:comment>
     <rdfs:label>SpecificResource</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/core/State">
     <rdfs:comment>A resource which describes how to retrieve an appropriate representation of the Source resource for the Annotation.</rdfs:comment>
