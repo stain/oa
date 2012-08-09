@@ -8,7 +8,7 @@
   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
 >
   <owl:Ontology rdf:about="http://www.w3.org/ns/openannotation/extension/">
-      <owl:imports rdf:resource="http://www.w3.org/ns/openannotation/core/" />
+      <owl:imports rdf:resource="../core/core-schema.xml" />
     <owl:versionInfo>core/20120509</owl:versionInfo>
   </owl:Ontology>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/Reply">
