@@ -3,7 +3,7 @@
   xmlns:owl="http://www.w3.org/2002/07/owl#"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xmlns:oa="http://www.w3.org/ns/openannotation/"
+  xmlns:oa="http://www.w3.org/ns/openannotation/core/"
 >
   <rdf:Property rdf:about="http://www.w3.org/ns/openannotation/core/hasBody">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
