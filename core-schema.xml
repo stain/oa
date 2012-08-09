@@ -5,15 +5,14 @@
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:oa="http://www.w3.org/ns/openannotation/core/"
 >
+  <owl:Ontology rdf:about="http://www.w3.org/ns/openannotation/core/">
+    <owl:versionInfo>core/20120509</owl:versionInfo>
+  </owl:Ontology>
   <rdf:Property rdf:about="http://www.w3.org/ns/openannotation/core/hasBody">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
     <rdfs:domain rdf:resource="http://www.w3.org/ns/openannotation/core/Annotation"/>
     <rdfs:comment>The relationship between Annotation and Body</rdfs:comment>
-    <rdfs:isDefinedBy>
-      <owl:Ontology rdf:about="http://www.w3.org/ns/openannotation/core/">
-        <owl:versionInfo>core/20120509</owl:versionInfo>
-      </owl:Ontology>
-    </rdfs:isDefinedBy>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     <rdfs:label>hasBody</rdfs:label>
   </rdf:Property>
   <rdf:Property rdf:about="http://www.w3.org/ns/openannotation/core/hasTarget">
