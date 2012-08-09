@@ -3,156 +3,183 @@
   xmlns:owl="http://www.w3.org/2002/07/owl#"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:oa="http://www.w3.org/ns/openannotation/core/"
+  xmlns:oax="http://www.w3.org/ns/openannotation/extension/"
 >
+  <owl:Ontology rdf:about="http://www.w3.org/ns/openannotation/extension/">
+      <owl:imports rdf:resource="http://www.w3.org/ns/openannotation/core/" />
+    <owl:versionInfo>core/20120509</owl:versionInfo>
+  </owl:Ontology>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/Reply">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for an Annotation that represents a reply to a previous statement, either an Annotation or another resource </rdfs:comment>
-    <rdfs:isDefinedBy>
-      <owl:Ontology rdf:about="http://www.w3.org/ns/openannotation/extension/">
-        <owl:versionInfo>core/20120509</owl:versionInfo>
-      </owl:Ontology>
-    </rdfs:isDefinedBy>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Annotation"/>
     <rdfs:label>Reply</rdfs:label>
   </rdfs:Class>
   <rdf:Property rdf:about="http://www.w3.org/ns/openannotation/extension/exact">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />   
     <rdfs:domain rdf:resource="http://www.w3.org/ns/openannotation/extension/TextQuoteSelector"/>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:label>exact</rdfs:label>
     <rdfs:comment>A copy of the text which is being selected, after normalization.</rdfs:comment>
   </rdf:Property>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/CssValueStyle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for representing CSS styling information for Specific Resources</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Style"/>
     <rdfs:label>CssValueStyle</rdfs:label>
   </rdfs:Class>
   <rdf:Property rdf:about="http://www.w3.org/ns/openannotation/extension/offset">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />   
     <rdfs:comment>The starting position of the segment of text. The first character in the full text is character position 0.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:label>offset</rdfs:label>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/openannotation/extension/TextOffsetSelector"/>
   </rdf:Property>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/Comment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for an Annotation that represents a commentary about or review of the target resource(s) </rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Annotation"/>
     <rdfs:label>Comment</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/Moderation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for an Annotation that represents an assignment of value or quality to the target resource(s) </rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Annotation"/>
     <rdfs:label>Moderation</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/XsltStyle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for representing an XSLT Stylesheet to be applied to an XML representation of a resource</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Style"/>
     <rdfs:label>XsltStyle</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/Tag">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for an Annotation that represents a Tag on the target resource(s). The tagging resource may be of any type or format</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Annotation"/>
     <rdfs:label>Tag</rdfs:label>
   </rdfs:Class>
   <rdf:Property rdf:about="http://www.w3.org/ns/openannotation/extension/hasSemanticTag">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />   
     <rdfs:comment>The relationship between an Annotation and the Tagging Resource.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:label>hasSemanticTag</rdfs:label>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/openannotation/core/Annotation"/>
   </rdf:Property>
   <rdf:Property rdf:about="http://www.w3.org/ns/openannotation/extension/prefix">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />   
     <rdfs:comment>A snippet of text that occurs immediately after the text which is being selected. </rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:label>prefix</rdfs:label>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/openannotation/extension/TextQuoteSelector"/>
   </rdf:Property>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/Description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for an Annotation that represents a description of the target resource(s), as opposed to a Comment about them</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Annotation"/>
     <rdfs:label>Description</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/Classification">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for an Annotation that represents the assignment of a classification type, typically from a controlled vocabulary, to the target resource(s)</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Annotation"/>
     <rdfs:label>Classification</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/CompositeStyle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for a Style which encapsulates more than one other Style which must be processed</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Style"/>
     <rdfs:label>CompositeStyle</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/Link">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for an Annotation that represents a link (of unspecified semantics) between the body and target resources </rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Annotation"/>
     <rdfs:label>Link</rdfs:label>
   </rdfs:Class>
   <rdf:Property rdf:about="http://www.w3.org/ns/openannotation/extension/range">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />   
     <rdfs:domain rdf:resource="http://www.w3.org/ns/openannotation/extension/TextOffsetSelector"/>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:label>range</rdfs:label>
     <rdfs:comment>The length of the segment of text selected. The last character is thus included within the segment.</rdfs:comment>
   </rdf:Property>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/Highlight">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for an Annotation that represents a highlighted section of the target resource or segment. A Highlight may or may not have a Body, and is likely to have both a Selector and a Style</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Annotation"/>
     <rdfs:label>Highlight</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/Reference">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for an Annotation that represents a reference for the target resource or segment </rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Annotation"/>
     <rdfs:label>Reference</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/CompositeSelector">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for a Selector which encapsulates more than one other Selector which must be processed</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Selector"/>
     <rdfs:label>CompositeSelector</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/Bookmark">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for an Annotation that represents a bookmark to the target resources or recorded point or points within one or more resources. Bookmarks may or may not have a Body resource</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Annotation"/>
     <rdfs:label>Bookmark</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/SvgSelector">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for a Selector which defines a shape using the SVG standard</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Selector"/>
     <rdfs:label>SvgSelector</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/CompositeState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for a State which encapsulates more than one other State which must be processed</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/State"/>
     <rdfs:label>CompositeState</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/Question">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for an Annotation that represents a question about the target resource(s)</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Annotation"/>
     <rdfs:label>Question</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/Change">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for an Annotation that represents a request for a modification or edit to the target resource</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Annotation"/>
     <rdfs:label>Change</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/TextQuoteSelector">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for a Selector that describes a textual segment by means of quoting it, plus passages before or after it.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Selector"/>
     <rdfs:label>TextQuoteSelector</rdfs:label>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/TextOffsetSelector">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
     <rdfs:comment>The class for a Selector which describes a range of text based on its starting position (oax:offset) and length (oax:range).</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/openannotation/core/Selector"/>
