@@ -5,6 +5,7 @@
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:oa="http://www.w3.org/ns/openannotation/core/"
   xmlns:oax="http://www.w3.org/ns/openannotation/extension/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
 >
   <owl:Ontology rdf:about="http://www.w3.org/ns/openannotation/extension/">
       <owl:imports rdf:resource="http://www.w3.org/ns/openannotation/core/" />
@@ -37,6 +38,7 @@
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:label>offset</rdfs:label>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/openannotation/extension/TextOffsetSelector"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
   </rdf:Property>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/Comment">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
@@ -79,6 +81,7 @@
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:label>prefix</rdfs:label>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/openannotation/extension/TextQuoteSelector"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
   </rdf:Property>
   <rdfs:Class rdf:about="http://www.w3.org/ns/openannotation/extension/Description">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />   
@@ -111,6 +114,7 @@
   <rdf:Property rdf:about="http://www.w3.org/ns/openannotation/extension/range">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />   
     <rdfs:domain rdf:resource="http://www.w3.org/ns/openannotation/extension/TextOffsetSelector"/>
+
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/extension/"/>
     <rdfs:label>range</rdfs:label>
     <rdfs:comment>The length of the segment of text selected. The last character is thus included within the segment.</rdfs:comment>
