@@ -21,10 +21,12 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#">
     <owl:Ontology rdf:about="http://www.w3.org/ns/openannotation/core/">
         <owl:versionInfo>core/20130205</owl:versionInfo>
+        <rdfs:seeAlso rdf:resource="http://www.openannotation.org/spec/core/20130205/index.html"/>
+        <owl:versionIRI rdf:resource="http://www.openannotation.org/spec/core/20130205/schema.xml"/>
         <owl:imports rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        <owl:imports rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/prov-o#"/>
-        <owl:imports rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
     </owl:Ontology>
     
 
@@ -61,8 +63,6 @@
      -->
 
     
-
-
 
 
     <!-- http://www.w3.org/ns/openannotation/core/annotatedBy -->
