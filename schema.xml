@@ -162,8 +162,12 @@ There is no OA class provided for &quot;Body&quot; as a body might be a target o
     <!-- http://www.w3.org/ns/openannotation/core/hasSelector -->
 
     <owl:ObjectProperty rdf:about="&oa;hasSelector">
-        <rdfs:label>hasSelector</rdfs:label>
-        <rdfs:comment>The relationship between a oa:SpecificResource and a oa:Selector.</rdfs:comment>
+        <rdfs:label xml:lang="en">hasSelector</rdfs:label>
+        <rdfs:comment xml:lang="en">The relationship between a oa:SpecificResource and a oa:Selector.
+. 
+There MUST be exactly 0 or 1 oa:hasSelector relationship associated with a Specific Resource. 
+
+If multiple Selectors are required, either to express a choice between different optional, equivalent selectors, or a chain of selectors that should all be processed, it is necessary to use oa:Choice, oa:Composite or oa:List as a selector.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:range rdf:resource="&oa;Selector"/>
         <rdfs:domain rdf:resource="&oa;SpecificResource"/>
@@ -174,8 +178,10 @@ There is no OA class provided for &quot;Body&quot; as a body might be a target o
     <!-- http://www.w3.org/ns/openannotation/core/hasSource -->
 
     <owl:ObjectProperty rdf:about="&oa;hasSource">
-        <rdfs:label>hasSource</rdfs:label>
-        <rdfs:comment>The relationship between a oa:SpecificResource and the resource that it is a more specific representation of. </rdfs:comment>
+        <rdfs:label xml:lang="en">hasSource</rdfs:label>
+        <rdfs:comment xml:lang="en">The relationship between a oa:SpecificResource and the resource that it is a more specific representation of. 
+
+There MUST be exactly 1 oa:hasSource relationship associated with a Specific Resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;SpecificResource"/>
     </owl:ObjectProperty>
@@ -294,8 +300,10 @@ There SHOULD be exactly 1 oa:annotatedAt property per Annotation, and MUST NOT b
     <!-- http://www.w3.org/ns/openannotation/core/end -->
 
     <owl:DatatypeProperty rdf:about="&oa;end">
-        <rdfs:label>end</rdfs:label>
-        <rdfs:comment>The end position of the segment of text. The last character is not included within the segment.</rdfs:comment>
+        <rdfs:label xml:lang="en">end</rdfs:label>
+        <rdfs:comment xml:lang="en">The end position of the segment of text or bytes. The first character/byte in the full text/stream is position 0. The character/byte indicated at position oa:end is NOT included within the selected segment. 
+
+See oa:DataPositionSelector and oa:oa:TextPositionSelector.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Selector"/>
@@ -344,7 +352,9 @@ There MAY be exactly 1 oa:serializedAt property per Annotation, and MUST NOT be 
 
     <owl:DatatypeProperty rdf:about="&oa;start">
         <rdfs:label>start</rdfs:label>
-        <rdfs:comment>The starting position of the segment of text. The first character in the full text is character position 0, and the character is included within the segment. </rdfs:comment>
+        <rdfs:comment xml:lang="en">The starting position of the segment of text or bytes. The first character/byte in the full text/stream is position 0. The character/byte indicated at position oa:start is included within the selected segment. 
+
+See oa:DataPositionSelector and oa:oa:TextPositionSelector.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Selector"/>
@@ -447,7 +457,13 @@ This &quot;aboutness&quot; may be further clarified or extended to notions such 
     <owl:Class rdf:about="&oa;DataPositionSelector">
         <rdfs:label>DataPositionSelector</rdfs:label>
         <rdfs:subClassOf rdf:resource="&oa;Selector"/>
-        <rdfs:comment>The class for a Selector which describes a range of data based on its start and end positions within the byte stream.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Selector which describes a range of data based on its start and end positions within the byte stream of the representation.
+
+Each DataPositionSelector MUST have exactly 1 oa:start property.
+
+Each TextPositionSelector MUST have exactly 1 oa:end property.
+
+See oa:TextPositionSelector for selection at normalized character level rather than bytestream level.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -456,9 +472,15 @@ This &quot;aboutness&quot; may be further clarified or extended to notions such 
     <!-- http://www.w3.org/ns/openannotation/core/FragmentSelector -->
 
     <owl:Class rdf:about="&oa;FragmentSelector">
-        <rdfs:label>FragmentSelector</rdfs:label>
+        <rdfs:label xml:lang="en">FragmentSelector</rdfs:label>
         <rdfs:subClassOf rdf:resource="&oa;Selector"/>
-        <rdfs:comment>A resource which describes the segment of interest in a representation, through the use of the fragment identifier component of a URI.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Selector which describes the segment of interest in a representation, through the use of the fragment identifier component of a URI.
+
+It is RECOMMENDED to use oa:FragmentSelector as the selector on a Specific Resource rather than annotating the fragment URI directly, in order to improve discoverability of annotation on the Source.
+
+The oa:FragmentSelector MUST have exactly 1 rdf:value property, containing the fragment identifier component of a URI that describes the segment of interest in the resource, excluding the initial &quot;#&quot;.
+
+The Fragment Selector SHOULD have a dcterms:conformsTo relationship with the object being the specification that defines the syntax of the fragment, for instance &lt;http://tools.ietf.org/rfc/rfc3236&gt; for HTML fragments. </rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -502,8 +524,12 @@ Each Annotation SHOULD have at least one oa:motivatedBy relationship to an insta
     <!-- http://www.w3.org/ns/openannotation/core/Selector -->
 
     <owl:Class rdf:about="&oa;Selector">
-        <rdfs:label>Selector</rdfs:label>
-        <rdfs:comment>A resource which describes the segment of interest in a representation of a Source resource</rdfs:comment>
+        <rdfs:label xml:lang="en">Selector</rdfs:label>
+        <rdfs:comment xml:lang="en">A resource which describes the segment of interest in a representation of a Source resource, indicated with oa:hasSelector.
+
+The nature of the Selector will be dependent on the type of the representation for which the segment is conveyed. The specific type of selector should be indicated using a subclass of oa:Selector.
+
+The Specifier&apos;s description MAY be conveyed as an external or embedded resource (cnt:Content), or as RDF properties within the graph. The description SHOULD use existing standards whenever possible. If the Specifier has an HTTP URI, then its description, and only its description, MUST be returned when the URI is dereferenced.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -525,8 +551,18 @@ It is NOT RECOMMENDED to use the URI of a document as a Semantic Tag, as it migh
     <!-- http://www.w3.org/ns/openannotation/core/SpecificResource -->
 
     <owl:Class rdf:about="&oa;SpecificResource">
-        <rdfs:label>SpecificResource</rdfs:label>
-        <rdfs:comment>A resource which identifies part of another resource, a particular representation of a resource, a resource with styling hints for renders, or any combination of these.</rdfs:comment>
+        <rdfs:label xml:lang="en">SpecificResource</rdfs:label>
+        <rdfs:comment xml:lang="en">A resource identifies part of another Source resource, a particular representation of a resource, a resource with styling hints for renders, or any combination of these. 
+
+The Specific Resource takes the role of oa:hasBody or oa:hasTarget in an oa:Annotation instead of the Source resource.
+
+There MUST be exactly 1 oa:hasSource relationship associated with a Specific Resource.
+
+There MUST be exactly 0 or 1 oa:hasSelector relationship associated with a Specific Resource.
+
+There MAY be 0 or 1 oa:hasState relationship for each Specific Resource.
+
+If the Specific Resource has an HTTP URI, then the exact segment of the Source resource that it identifies, and only the segment, MUST be returned when the URI is dereferenced. For example, if the segment of interest is a region of an image and the Specific Resource has an HTTP URI, then dereferencing it MUST return the selected region of the image as it was at the time when the annotation was created. Typically this would be a burden to support, and thus the Specific Resource SHOULD be identified by a globally unique URI, such as a UUID URN. If it is not considered important to allow other Annotations or systems to refer to the Specific Resource, then a blank node MAY be used instead.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -555,9 +591,17 @@ It is NOT RECOMMENDED to use the URI of a document as a Semantic Tag, as it migh
     <!-- http://www.w3.org/ns/openannotation/core/SvgSelector -->
 
     <owl:Class rdf:about="&oa;SvgSelector">
-        <rdfs:label>SvgSelector</rdfs:label>
+        <rdfs:label xml:lang="en">SvgSelector</rdfs:label>
         <rdfs:subClassOf rdf:resource="&oa;Selector"/>
-        <rdfs:comment>The class for a Selector which defines a shape using the SVG standard.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Selector which selects an area specified as an SVG shape.
+
+The SVG document should either be retrievable by resolving the URI of this resource, or be included as an Embedded Resource using cnt:Content.
+
+It is RECOMMENDED that the document contain only a single shape element and that element SHOULD be one of: path, rect, circle, ellipse, polyline, polygon or g. The g element SHOULD ONLY be used to construct a multi-element group, for example to define a donut shape requiring an outer circle and a clipped inner circle.
+
+The dimensions of both the shape and the SVG canvas MUST be relative to the dimensions of the Source resource. For example, given an image which is 600 pixels by 400 pixels, and the desired section is a circle of 100 pixel radius at the center of the image, then the SVG element would be: &lt;circle cx=&quot;300&quot; cy=&quot;200&quot; r=&quot;100&quot;/&gt;
+
+It is NOT RECOMMENDED to include style information within the SVG element, nor Javascript, animation, text or other non shape oriented information. Clients SHOULD ignore such information if present.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -580,9 +624,15 @@ Annotations that tag resources, either with text or semantic tags, SHOULD also h
     <!-- http://www.w3.org/ns/openannotation/core/TextPositionSelector -->
 
     <owl:Class rdf:about="&oa;TextPositionSelector">
-        <rdfs:label>TextPositionSelector</rdfs:label>
+        <rdfs:label xml:lang="en">TextPositionSelector</rdfs:label>
         <rdfs:subClassOf rdf:resource="&oa;Selector"/>
-        <rdfs:comment>The class for a Selector which describes a range of text based on its start and end positions.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An oa:Selector which describes a range of text based on its start and end positions.
+
+The text MUST be normalized before counting characters. For a Selector that works from the bitstream rather than the rendered characters, see oa:DataPositionSelector.
+
+Each oa:TextPositionSelector MUST have exactly 1 oa:start property.
+
+Each oa:TextPositionSelector MUST have exactly 1 oa:end property.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -591,9 +641,19 @@ Annotations that tag resources, either with text or semantic tags, SHOULD also h
     <!-- http://www.w3.org/ns/openannotation/core/TextQuoteSelector -->
 
     <owl:Class rdf:about="&oa;TextQuoteSelector">
-        <rdfs:label>TextQuoteSelector</rdfs:label>
+        <rdfs:label xml:lang="en">TextQuoteSelector</rdfs:label>
         <rdfs:subClassOf rdf:resource="&oa;Selector"/>
-        <rdfs:comment>The class for a Selector that describes a textual segment by means of quoting it, plus passages before or after it.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Selector that describes a textual segment by means of quoting it, plus passages before or after it.
+
+For example, if the document were &quot;abcdefghijklmnopqrstuvwxyz&quot;, one could select &quot;efg&quot; by a oa:prefix of &quot;abcd&quot;, the quotation of oa:exact &quot;efg&quot; and a oa:suffix of &quot;hijk&quot;.
+
+The text MUST be normalized before recording.
+
+Each TextQuoteSelector MUST have exactly 1 oa:exact property.
+
+Each TextQuoteSelector SHOULD have exactly 1 oa:prefix property, and MUST NOT have more than 1.
+
+Each TextQuoteSelector SHOULD have exactly 1 oa:suffix property, and MUST NOT have more than 1.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
