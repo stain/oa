@@ -2,11 +2,17 @@
 
 
 <!DOCTYPE rdf:RDF [
+    <!ENTITY dcterms "http://purl.org/dc/terms/" >
     <!ENTITY prov "http://www.w3.org/ns/prov#" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY dctypes "http://purl.org/dc/dcmitype/" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY cnt "http://www.w3.org/2011/content#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY trig "http://www.w3.org/2004/03/trix/rdfg-1/" >
     <!ENTITY oa "http://www.w3.org/ns/openannotation/core/" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
 ]>
@@ -14,12 +20,18 @@
 
 <rdf:RDF xmlns="http://www.w3.org/ns/openannotation/core"
      xml:base="http://www.w3.org/ns/openannotation/core"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:trig="http://www.w3.org/2004/03/trix/rdfg-1/"
      xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:cnt="http://www.w3.org/2011/content#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:oa="http://www.w3.org/ns/openannotation/core/"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:dctypes="http://purl.org/dc/dcmitype/"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#">
     <owl:Ontology rdf:about="http://www.w3.org/ns/openannotation/core/">
         <owl:versionInfo>core/20130205</owl:versionInfo>
@@ -40,6 +52,8 @@
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
+
+    
 
 
     <!-- 
