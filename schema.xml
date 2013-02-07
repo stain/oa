@@ -98,7 +98,7 @@ It is RECOMMENDED to use these and other FOAF terms to describe agents: foaf:Per
 
     <owl:ObjectProperty rdf:about="&oa;cachedSource">
         <rdfs:label>cachedSource</rdfs:label>
-        <rdfs:comment>A link to a copy of the Source resource&apos;s representation, appropriate for the Annotation. </rdfs:comment>
+        <rdfs:comment xml:lang="en">A link to a copy of the Source resource&apos;s representation appropriate for the Annotation, typically a copy of the original at the time that the Annotation was created</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;TimeState"/>
     </owl:ObjectProperty>
@@ -388,7 +388,7 @@ See oa:DataPositionSelector and oa:oa:TextPositionSelector.</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&oa;when">
         <rdfs:label>when</rdfs:label>
-        <rdfs:comment>The timestamp at which the Source resource should be interpreted for the Annotation.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The timestamp at which the Source resource should be interpreted for the Annotation, typically the time that the Annotation was created.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;TimeState"/>
@@ -489,9 +489,11 @@ The Fragment Selector SHOULD have a dcterms:conformsTo relationship with the obj
     <!-- http://www.w3.org/ns/openannotation/core/HttpRequestState -->
 
     <owl:Class rdf:about="&oa;HttpRequestState">
-        <rdfs:label>HttpRequestState</rdfs:label>
+        <rdfs:label xml:lang="en">HttpRequestState</rdfs:label>
         <rdfs:subClassOf rdf:resource="&oa;State"/>
-        <rdfs:comment>A resource which describes how to retrieve an appropriate representation of the Source resource for the Annotation, based on the HTTP Request headers to send to the server.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A resource which describes how to retrieve an appropriate representation of the Source resource for the Annotation, based on the HTTP Request headers to send to the server.
+
+There MUST be exactly 1 rdf:value property per HttpRequestState, containing HTTP request headers as a single, complete string, exactly as they would appear in an HTTP request. </rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -525,7 +527,9 @@ Each Annotation SHOULD have at least one oa:motivatedBy relationship to an insta
 
     <owl:Class rdf:about="&oa;Selector">
         <rdfs:label xml:lang="en">Selector</rdfs:label>
-        <rdfs:comment xml:lang="en">A resource which describes the segment of interest in a representation of a Source resource, indicated with oa:hasSelector.
+        <rdfs:comment xml:lang="en">A resource which describes the segment of interest in a representation of a Source resource, indicated with oa:hasSelector from the Specific Resource. 
+
+This class is not used directly in Annotations, only its subclasses are.
 
 The nature of the Selector will be dependent on the type of the representation for which the segment is conveyed. The specific type of selector should be indicated using a subclass of oa:Selector.
 
@@ -571,8 +575,10 @@ If the Specific Resource has an HTTP URI, then the exact segment of the Source r
     <!-- http://www.w3.org/ns/openannotation/core/State -->
 
     <owl:Class rdf:about="&oa;State">
-        <rdfs:label>State</rdfs:label>
-        <rdfs:comment>A resource which describes how to retrieve an appropriate representation of the Source resource for the Annotation.</rdfs:comment>
+        <rdfs:label xml:lang="en">State</rdfs:label>
+        <rdfs:comment xml:lang="en">A resource which describes how to retrieve an appropriate representation of the Source resource, indicated with oa:hasState from the Specific Resource.
+
+This class is not used directly in Annotations, only its subclasses are.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -581,7 +587,7 @@ If the Specific Resource has an HTTP URI, then the exact segment of the Source r
     <!-- http://www.w3.org/ns/openannotation/core/Style -->
 
     <owl:Class rdf:about="&oa;Style">
-        <rdfs:label>Style</rdfs:label>
+        <rdfs:label xml:lang="en">Style</rdfs:label>
         <rdfs:comment>A resource which describes the style in which the selection or resource should be rendered.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
@@ -662,9 +668,11 @@ Each TextQuoteSelector SHOULD have exactly 1 oa:suffix property, and MUST NOT ha
     <!-- http://www.w3.org/ns/openannotation/core/TimeState -->
 
     <owl:Class rdf:about="&oa;TimeState">
-        <rdfs:label>TimeState</rdfs:label>
+        <rdfs:label xml:lang="en">TimeState</rdfs:label>
         <rdfs:subClassOf rdf:resource="&oa;State"/>
-        <rdfs:comment>A resource which describes how to retrieve a representation of the Source resource that is temporally appropriate for the Annotation.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A resource which describes how to retrieve a representation of the Source resource that is temporally appropriate for the Annotation.
+
+There MUST be at least one of oa:cachedSource or oa:when specified. If there is more than 1, each gives an alternative copy of the representation.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
