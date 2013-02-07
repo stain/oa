@@ -12,3 +12,7 @@ RDFS/OWL version by:
 
 Comments and labels are typically taking verbatim from the 
 specification at http://www.openannotation.org/spec/core/
+
+The owl:imports lines are included for convenience while
+editing the ontology in Protege, and *SHOULD NOT* be included
+in the published OWL.
