@@ -81,8 +81,12 @@
     <!-- http://www.w3.org/ns/openannotation/core/annotatedBy -->
 
     <owl:ObjectProperty rdf:about="&oa;annotatedBy">
-        <rdfs:label>annotatedBy</rdfs:label>
-        <rdfs:comment>The object of the relationship is a resource that identifies the agent responsible for creating the Annotation. This may be either a human or software agent. </rdfs:comment>
+        <rdfs:label xml:lang="en">annotatedBy</rdfs:label>
+        <rdfs:comment xml:lang="en">The object of the relationship is a resource that identifies the agent responsible for creating the Annotation. This may be either a human or software agent. 
+
+There SHOULD be exactly 1 oa:annotatedBy relationship per Annotation, but MAY be 0 or more than 1, as the Annotation may be anonymous, or multiple agents may have worked together on it.
+
+It is RECOMMENDED to use these and other FOAF terms to describe agents: foaf:Person, prov:SoftwareAgent, foaf:Organization, foaf:name, foaf:mbox, foaf:openid, foaf:homepage</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Annotation"/>
         <rdfs:subPropertyOf rdf:resource="&prov;wasAttributedTo"/>
@@ -127,8 +131,17 @@
     <!-- http://www.w3.org/ns/openannotation/core/hasBody -->
 
     <owl:ObjectProperty rdf:about="&oa;hasBody">
-        <rdfs:label>hasBody</rdfs:label>
-        <rdfs:comment>The relationship between Annotation and Body</rdfs:comment>
+        <rdfs:label xml:lang="en">hasBody</rdfs:label>
+        <rdfs:comment xml:lang="en">The relationship between oa:Annotation and body. The body is somehow &quot;about&quot; the oa:hasTarget of the annotation.
+
+The Body may be of any media type, and contain any type of content. The Body SHOULD be identified by HTTP URIs unless they are embedded within the Annotation.
+
+Embedded bodies SHOULD be instances of cnt:ContentAsText and embed their content with cnt:chars. They SHOULD declare their media type with dc:format, and MAY indicate their language using dc:language and a RFC-3066 language tag. 
+
+There is no OA class provided for &quot;Body&quot; as a body might be a target of a different annotation. However, there SHOULD be 1 or more content-based classes associated with the body resources of an Annotation, and the dctypes: vocabulary is recommended for this purpose, for instance to declare textual content:
+
+    :body a dctypes:Text.
+</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Annotation"/>
     </owl:ObjectProperty>
@@ -184,8 +197,16 @@
     <!-- http://www.w3.org/ns/openannotation/core/hasTarget -->
 
     <owl:ObjectProperty rdf:about="&oa;hasTarget">
-        <rdfs:label>hasTarget</rdfs:label>
-        <rdfs:comment>The relationship between Annotation and Target</rdfs:comment>
+        <rdfs:label xml:lang="en">hasTarget</rdfs:label>
+        <rdfs:comment xml:lang="en">The relationship between oa:Annotation and target. The target resource is what the oa:hasBody is somewhat &quot;about&quot;.
+
+The target may be of any media type, and contain any type of content. The target SHOULD be identified by HTTP URIs unless they are embedded within the Annotation.
+
+Embedded targets SHOULD be instances of cnt:ContentAsText and embed their content with cnt:chars. They SHOULD declare their media type with dc:format, and MAY indicate their language using dc:language and a RFC-3066 language tag. 
+
+There is no OA class provided for &quot;Target&quot; as a target might be a body in a different annotation. However, there SHOULD be 1 or more content-based classes associated with the target resources of an Annotation, and the dctypes: vocabulary is recommended for this purpose, for instance:
+
+    :target a dctypes:Text.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Annotation"/>
     </owl:ObjectProperty>
@@ -206,8 +227,10 @@
     <!-- http://www.w3.org/ns/openannotation/core/motivatedBy -->
 
     <owl:ObjectProperty rdf:about="&oa;motivatedBy">
-        <rdfs:label>motivatedBy</rdfs:label>
-        <rdfs:comment>The relationship between an Annotation and a Motivation.</rdfs:comment>
+        <rdfs:label xml:lang="en">motivatedBy</rdfs:label>
+        <rdfs:comment xml:lang="en">The relationship between an Annotation and a Motivation, indicating the reasons why the Annotation was created.
+
+Each Annotation SHOULD have at least one oa:motivatedBy relationship, and MAY be more than 1.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Annotation"/>
         <rdfs:range rdf:resource="&oa;Motivation"/>
@@ -218,8 +241,12 @@
     <!-- http://www.w3.org/ns/openannotation/core/serializedBy -->
 
     <owl:ObjectProperty rdf:about="&oa;serializedBy">
-        <rdfs:label>serializedBy</rdfs:label>
-        <rdfs:comment>The object of the relationship is the agent, likely software, responsible for generating the serialization of the Annotation&apos;s graph. </rdfs:comment>
+        <rdfs:label xml:lang="en">serializedBy</rdfs:label>
+        <rdfs:comment xml:lang="en">The object of the relationship is the agent, likely software, responsible for generating the serialization of the Annotation&apos;s serialization. 
+
+It is RECOMMENDED to use these and other FOAF terms to describe agents: foaf:Person, prov:SoftwareAgent, foaf:Organization, foaf:name, foaf:mbox, foaf:openid, foaf:homepage
+
+There MAY be 0 or more oa:serializedBy relationships per Annotation.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Annotation"/>
         <rdfs:subPropertyOf rdf:resource="&prov;wasAttributedTo"/>
@@ -254,7 +281,9 @@
 
     <owl:DatatypeProperty rdf:about="&oa;annotatedAt">
         <rdfs:label>annotatedAt</rdfs:label>
-        <rdfs:comment>The time at which the Annotation was created created.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The time at which the Annotation was created. 
+
+There SHOULD be exactly 1 oa:annotatedAt property per Annotation, and MUST NOT be more than 1. The datetime MUST be expressed in the xsd:dateTime format, and SHOULD have a timezone specified.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Annotation"/>
@@ -299,8 +328,11 @@
     <!-- http://www.w3.org/ns/openannotation/core/serializedAt -->
 
     <owl:DatatypeProperty rdf:about="&oa;serializedAt">
-        <rdfs:label>serializedAt</rdfs:label>
-        <rdfs:comment>The time at which the agent referenced by oa:serializedBy generated the first serialization of the Annotation, and any subsequent substantially different one.</rdfs:comment>
+        <rdfs:label xml:lang="en">serializedAt</rdfs:label>
+        <rdfs:comment xml:lang="en">The time at which the agent referenced by oa:serializedBy generated the first serialization of the Annotation, and any subsequent substantially different one. The annotation graph MUST have changed for this property to be updated, and as such represents the last modified datestamp for the Annotation. This might be used to determine if it should be re-imported into a triplestore when discovered. 
+
+There MAY be exactly 1 oa:serializedAt property per Annotation, and MUST NOT be more than 1. The datetime MUST be expressed in the xsd:dateTime format, and SHOULD have a timezone specified.
+</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Annotation"/>
@@ -368,8 +400,10 @@
     <!-- http://www.w3.org/ns/openannotation/core/Annotation -->
 
     <owl:Class rdf:about="&oa;Annotation">
-        <rdfs:label>Annotation</rdfs:label>
-        <rdfs:comment>A document identified by an HTTP URI that describes, at least, the Body and Target resources involved in the annotation.</rdfs:comment>
+        <rdfs:label xml:lang="en">Annotation</rdfs:label>
+        <rdfs:comment xml:lang="en">Typically an Annotation has a single Body (oa:hasBody), which is the comment or other descriptive resource, and a single Target (oa:hasTarget) that the Body is somehow &quot;about&quot;. The Body provides the information which is annotating the Target. 
+
+This &quot;aboutness&quot; may be further clarified or extended to notions such as classifying or identifying with oa:motivatedBy.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -455,9 +489,11 @@
     <!-- http://www.w3.org/ns/openannotation/core/Motivation -->
 
     <owl:Class rdf:about="&oa;Motivation">
-        <rdfs:label>Motivation</rdfs:label>
+        <rdfs:label xml:lang="en">Motivation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
-        <rdfs:comment>The Motivation for an Annotation is a reason for its creation, and might include things like Replying to another annotation, Commenting on a resource, or Linking to a related resource.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The Motivation for creating an Annotation, indicated with oa:motivatedBy, is a reason for its creation, and might include things like oa:replying to another annotation, oa:commenting on a resource, or oa:linking to a related resource.
+
+Each Annotation SHOULD have at least one oa:motivatedBy relationship to an instance of oa:Motivation, which is a subClass of skos:Concept.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -476,9 +512,11 @@
     <!-- http://www.w3.org/ns/openannotation/core/SemanticTag -->
 
     <owl:Class rdf:about="&oa;SemanticTag">
-        <rdfs:label>SemanticTag</rdfs:label>
+        <rdfs:label xml:lang="en">SemanticTag</rdfs:label>
         <rdfs:subClassOf rdf:resource="&oa;Tag"/>
-        <rdfs:comment>A class assigned to the Body when it is a semantic tagging resource; a URI that identifies a concept, rather than an embedded string, frequently a term from a controlled vocabulary</rdfs:comment>
+        <rdfs:comment xml:lang="en">A class assigned to the Body when it is a semantic tagging resource; a URI that identifies a concept, rather than an embedded string, frequently a term from a controlled vocabulary.
+
+It is NOT RECOMMENDED to use the URI of a document as a Semantic Tag, as it might also be used as a regular Body in other Annotations which would inherit the oa:SemanticTag class assignment. Instead it is more appropriate to create a new URI and link it to the document, using the foaf:page predicate.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -528,8 +566,12 @@
     <!-- http://www.w3.org/ns/openannotation/core/Tag -->
 
     <owl:Class rdf:about="&oa;Tag">
-        <rdfs:label>Tag</rdfs:label>
-        <rdfs:comment>A class assigned to the Body when it is a tag, such as a embedded text string</rdfs:comment>
+        <rdfs:label xml:lang="en">Tag</rdfs:label>
+        <rdfs:comment xml:lang="en">A class assigned to the Body when it is a tag, such as a embedded text string with cnt:chars.
+
+Tags are typically keywords or labels, and used for organization, description or discovery of the resource being tagged. In the Semantic Web, URIs are used instead of strings to avoid the issue of polysemy where one word has multiple meanings, such usage MUST be indicated using the subclass oa:SemanticTag.
+
+Annotations that tag resources, either with text or semantic tags, SHOULD also have the oa:tagging motivation to make the reason for the Annotation more clear to applications, and MAY have other motivations as well.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -584,7 +626,7 @@
     <owl:NamedIndividual rdf:about="&oa;bookmarking">
         <rdf:type rdf:resource="&oa;Motivation"/>
         <skos:prefLabel xml:lang="en">Editing</skos:prefLabel>
-        <rdfs:comment>The motivation that represents the creation of a bookmark to the target resources or recorded point or points within one or more resources.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The motivation that represents the creation of a bookmark to the target resources or recorded point or points within one or more resources. For example, an Annotation that bookmarks the point in a text where the reader finished reading. Bookmark Annotations may or may not have a Body resource.</rdfs:comment>
         <skos:inScheme rdf:resource="&oa;motivationScheme"/>
     </owl:NamedIndividual>
     
@@ -595,7 +637,7 @@
     <owl:NamedIndividual rdf:about="&oa;classifying">
         <rdf:type rdf:resource="&oa;Motivation"/>
         <skos:prefLabel xml:lang="en">Classifying</skos:prefLabel>
-        <rdfs:comment>The motivation that represents the assignment of a classification type, typically from a controlled vocabulary, to the target resource(s).</rdfs:comment>
+        <rdfs:comment xml:lang="en">The motivation that represents the assignment of a classification type, typically from a controlled vocabulary, to the target resource(s). For example to classify an Image resource as a Portrait.</rdfs:comment>
         <skos:inScheme rdf:resource="&oa;motivationScheme"/>
     </owl:NamedIndividual>
     
@@ -606,7 +648,7 @@
     <owl:NamedIndividual rdf:about="&oa;commenting">
         <rdf:type rdf:resource="&oa;Motivation"/>
         <skos:prefLabel xml:lang="en">Commenting</skos:prefLabel>
-        <rdfs:comment>The motivation that represents a commentary about or review of the target resource(s).</rdfs:comment>
+        <rdfs:comment xml:lang="en">The motivation that represents a commentary about or review of the target resource(s). For example to provide a commentary about a particular PDF.</rdfs:comment>
         <skos:inScheme rdf:resource="&oa;motivationScheme"/>
     </owl:NamedIndividual>
     
@@ -616,8 +658,8 @@
 
     <owl:NamedIndividual rdf:about="&oa;describing">
         <rdf:type rdf:resource="&oa;Motivation"/>
-        <rdfs:comment>The motivation that represents a description of the target resource(s), as opposed to a comment about them.</rdfs:comment>
         <skos:prefLabel xml:lang="en">Describing</skos:prefLabel>
+        <rdfs:comment xml:lang="en">The motivation that represents a description of the target resource(s), as opposed to a comment about them. For example describing the above PDF&apos;s contents, rather than commenting on their accuracy.</rdfs:comment>
         <skos:inScheme rdf:resource="&oa;motivationScheme"/>
     </owl:NamedIndividual>
     
@@ -628,7 +670,7 @@
     <owl:NamedIndividual rdf:about="&oa;editing">
         <rdf:type rdf:resource="&oa;Motivation"/>
         <skos:prefLabel xml:lang="en">Bookmarking</skos:prefLabel>
-        <rdfs:comment>The motivation that represents a request for a modification or edit to the target resource.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The motivation that represents a request for a modification or edit to the target resource. For example, an Annotation that requests a typo to be corrected.</rdfs:comment>
         <skos:inScheme rdf:resource="&oa;motivationScheme"/>
     </owl:NamedIndividual>
     
@@ -638,8 +680,8 @@
 
     <owl:NamedIndividual rdf:about="&oa;highlighting">
         <rdf:type rdf:resource="&oa;Motivation"/>
-        <rdfs:comment>The motivation that represents a highlighted section of the target resource or segment.</rdfs:comment>
         <skos:prefLabel xml:lang="en">Highlighting</skos:prefLabel>
+        <rdfs:comment xml:lang="en">The motivation that represents a highlighted section of the target resource or segment. For example to draw attention to the selected text that the annotator disagrees with. A Highlight may or may not have a Body resource</rdfs:comment>
         <skos:inScheme rdf:resource="&oa;motivationScheme"/>
     </owl:NamedIndividual>
     
@@ -650,7 +692,18 @@
     <owl:NamedIndividual rdf:about="&oa;identifying">
         <rdf:type rdf:resource="&oa;Motivation"/>
         <skos:prefLabel xml:lang="en">Identifying</skos:prefLabel>
-        <rdfs:comment>The motivation that represents the assignment of an identity to the target resource(s).</rdfs:comment>
+        <rdfs:comment xml:lang="en">The motivation that represents the assignment of an identity to the target resource(s). For example, annotating the name of a city in a string of text with the URI that identifies it.</rdfs:comment>
+        <skos:inScheme rdf:resource="&oa;motivationScheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/ns/openannotation/core/linking -->
+
+    <owl:NamedIndividual rdf:about="&oa;linking">
+        <rdf:type rdf:resource="&oa;Motivation"/>
+        <skos:prefLabel xml:lang="en">Linking</skos:prefLabel>
+        <rdfs:comment xml:lang="en">The motivation that represents an untyped link to a resource related to the target.</rdfs:comment>
         <skos:inScheme rdf:resource="&oa;motivationScheme"/>
     </owl:NamedIndividual>
     
@@ -660,8 +713,8 @@
 
     <owl:NamedIndividual rdf:about="&oa;moderating">
         <rdf:type rdf:resource="&oa;Motivation"/>
-        <rdfs:comment>The motivation that represents an assignment of value or quality to the target resource(s).</rdfs:comment>
         <skos:prefLabel xml:lang="en">Moderating</skos:prefLabel>
+        <rdfs:comment xml:lang="en">The motivation that represents an assignment of value or quality to the target resource(s). For example annotating an Annotation to moderate it up in a trust network or threaded discussion.</rdfs:comment>
         <skos:inScheme rdf:resource="&oa;motivationScheme"/>
     </owl:NamedIndividual>
     
@@ -681,7 +734,7 @@
     <owl:NamedIndividual rdf:about="&oa;questioning">
         <rdf:type rdf:resource="&oa;Motivation"/>
         <skos:prefLabel xml:lang="en">Questioning</skos:prefLabel>
-        <rdfs:comment>The motivation that represents asking a question about the target resource(s).</rdfs:comment>
+        <rdfs:comment xml:lang="en">The motivation that represents asking a question about the target resource(s). For example to ask for assistance with a particular section of text, or question its veracity.</rdfs:comment>
         <skos:inScheme rdf:resource="&oa;motivationScheme"/>
     </owl:NamedIndividual>
     
@@ -692,7 +745,7 @@
     <owl:NamedIndividual rdf:about="&oa;replying">
         <rdf:type rdf:resource="&oa;Motivation"/>
         <skos:prefLabel xml:lang="en">Replying</skos:prefLabel>
-        <rdfs:comment>The motivation that represents a reply to a previous statement, either an Annotation or another resource.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The motivation that represents a reply to a previous statement, either an Annotation or another resource. For example providing the assistance requested in the above.</rdfs:comment>
         <skos:inScheme rdf:resource="&oa;motivationScheme"/>
     </owl:NamedIndividual>
     
@@ -703,7 +756,7 @@
     <owl:NamedIndividual rdf:about="&oa;tagging">
         <rdf:type rdf:resource="&oa;Motivation"/>
         <skos:prefLabel xml:lang="en">Tagging</skos:prefLabel>
-        <rdfs:comment>The motivation that represents adding a Tag on the target resource(s).</rdfs:comment>
+        <rdfs:comment xml:lang="en">The motivation that represents adding a Tag on the target resource(s). One or more of the bodies of the annotation should be typed as a oa:Tag or oa:SemanticTag.</rdfs:comment>
         <skos:inScheme rdf:resource="&oa;motivationScheme"/>
     </owl:NamedIndividual>
 </rdf:RDF>
