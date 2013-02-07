@@ -97,7 +97,7 @@ It is RECOMMENDED to use these and other FOAF terms to describe agents: foaf:Per
     <!-- http://www.w3.org/ns/openannotation/core/cachedSource -->
 
     <owl:ObjectProperty rdf:about="&oa;cachedSource">
-        <rdfs:label>cachedSource</rdfs:label>
+        <rdfs:label xml:lang="en">cachedSource</rdfs:label>
         <rdfs:comment xml:lang="en">A link to a copy of the Source resource&apos;s representation appropriate for the Annotation, typically a copy of the original at the time that the Annotation was created</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;TimeState"/>
@@ -144,9 +144,7 @@ The Body may be of any media type, and contain any type of content. The Body SHO
 
 Embedded bodies SHOULD be instances of cnt:ContentAsText and embed their content with cnt:chars. They SHOULD declare their media type with dc:format, and MAY indicate their language using dc:language and a RFC-3066 language tag. 
 
-There is no OA class provided for &quot;Body&quot; as a body might be a target of a different annotation. However, there SHOULD be 1 or more content-based classes associated with the body resources of an Annotation, and the dctypes: vocabulary is recommended for this purpose, for instance to declare textual content:
-
-    :body a dctypes:Text.
+There is no OA class provided for &quot;Body&quot; as a body might be a target of a different annotation. However, there SHOULD be 1 or more content-based classes associated with the body resources of an Annotation, and the dctypes: vocabulary is recommended for this purpose, for instance dctypes:Text to declare textual content.
 </rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Annotation"/>
@@ -172,8 +170,9 @@ There MAY be 0 or more hasScope relationships for each Specific Resource.</rdfs:
     <owl:ObjectProperty rdf:about="&oa;hasSelector">
         <rdfs:label xml:lang="en">hasSelector</rdfs:label>
         <rdfs:comment xml:lang="en">The relationship between a oa:SpecificResource and a oa:Selector.
-. 
-There MUST be exactly 0 or 1 oa:hasSelector relationship associated with a Specific Resource. 
+
+There MUST be exactly 0 or 1 oa:hasSelector relationship associated with a 
+Specific Resource. 
 
 If multiple Selectors are required, either to express a choice between different optional, equivalent selectors, or a chain of selectors that should all be processed, it is necessary to use oa:Choice, oa:Composite or oa:List as a selector.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
@@ -199,8 +198,12 @@ There MUST be exactly 1 oa:hasSource relationship associated with a Specific Res
     <!-- http://www.w3.org/ns/openannotation/core/hasState -->
 
     <owl:ObjectProperty rdf:about="&oa;hasState">
-        <rdfs:label>hasState</rdfs:label>
-        <rdfs:comment>The relationship between a oa:SpecificResource and a oa:State resource</rdfs:comment>
+        <rdfs:label xml:lang="en">hasState</rdfs:label>
+        <rdfs:comment xml:lang="en">The relationship between a oa:SpecificResource and a oa:State resource.
+
+There MAY be 0 or 1 oa:hasState relationship for each SpecificResource.
+
+If there are multiple State resources that must be associated with the specific resource, then the use of the Multiplicity Constructs oa:Choice, oa:Composite or oa:List is RECOMMENDED.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;SpecificResource"/>
         <rdfs:range rdf:resource="&oa;State"/>
@@ -218,9 +221,7 @@ The target may be of any media type, and contain any type of content. The target
 
 Embedded targets SHOULD be instances of cnt:ContentAsText and embed their content with cnt:chars. They SHOULD declare their media type with dc:format, and MAY indicate their language using dc:language and a RFC-3066 language tag. 
 
-There is no OA class provided for &quot;Target&quot; as a target might be a body in a different annotation. However, there SHOULD be 1 or more content-based classes associated with the target resources of an Annotation, and the dctypes: vocabulary is recommended for this purpose, for instance:
-
-    :target a dctypes:Text.</rdfs:comment>
+There is no OA class provided for &quot;Target&quot; as a target might be a body in a different annotation. However, there SHOULD be 1 or more content-based classes associated with the target resources of an Annotation, and the dctypes: vocabulary is recommended for this purpose, for instance dctypes:Text to declare textual content.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Annotation"/>
     </owl:ObjectProperty>
@@ -273,8 +274,12 @@ There MAY be 0 or more oa:serializedBy relationships per Annotation.</rdfs:comme
     <!-- http://www.w3.org/ns/openannotation/core/styledBy -->
 
     <owl:ObjectProperty rdf:about="&oa;styledBy">
-        <rdfs:label>styledBy</rdfs:label>
-        <rdfs:comment>The relationship between a oa:Annotation and a oa:Style</rdfs:comment>
+        <rdfs:label xml:lang="en">styledBy</rdfs:label>
+        <rdfs:comment xml:lang="en">The relationship between a oa:Annotation and a oa:Style.
+
+There MAY be 0 or 1 styledBy relationships for each Annotation.
+
+If there are multiple Style resources that must be associated with the Annotation, then the use of the Multiplicity Constructs oa:Choice, oa:Composite or oa:List is RECOMMENDED.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Annotation"/>
         <rdfs:range rdf:resource="&oa;Style"/>
@@ -483,7 +488,7 @@ The CSS resource MAY have its own dereferencable URI that provides the informati
     <!-- http://www.w3.org/ns/openannotation/core/DataPositionSelector -->
 
     <owl:Class rdf:about="&oa;DataPositionSelector">
-        <rdfs:label>DataPositionSelector</rdfs:label>
+        <rdfs:label xml:lang="en">DataPositionSelector</rdfs:label>
         <rdfs:subClassOf rdf:resource="&oa;Selector"/>
         <rdfs:comment xml:lang="en">A Selector which describes a range of data based on its start and end positions within the byte stream of the representation.
 
@@ -612,7 +617,9 @@ If the Specific Resource has an HTTP URI, then the exact segment of the Source r
         <rdfs:label xml:lang="en">State</rdfs:label>
         <rdfs:comment xml:lang="en">A resource which describes how to retrieve an appropriate representation of the Source resource, indicated with oa:hasState from the Specific Resource.
 
-This class is not used directly in Annotations, only its subclasses are.</rdfs:comment>
+This class is not used directly in Annotations, only its subclasses are.
+
+The Specifier&apos;s description MAY be conveyed as an external or embedded resource (cnt:Content), or as RDF properties within the graph. The description SHOULD use existing standards whenever possible. If the Specifier has an HTTP URI, then its description, and only its description, MUST be returned when the URI is dereferenced.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
