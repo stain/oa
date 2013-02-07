@@ -301,7 +301,7 @@ If there are multiple Style resources that must be associated with the Annotatio
     <!-- http://www.w3.org/ns/openannotation/core/annotatedAt -->
 
     <owl:DatatypeProperty rdf:about="&oa;annotatedAt">
-        <rdfs:label>annotatedAt</rdfs:label>
+        <rdfs:label xml:lang="en">annotatedAt</rdfs:label>
         <rdfs:comment xml:lang="en">The time at which the Annotation was created. 
 
 There SHOULD be exactly 1 oa:annotatedAt property per Annotation, and MUST NOT be more than 1. The datetime MUST be expressed in the xsd:dateTime format, and SHOULD have a timezone specified.</rdfs:comment>
@@ -329,8 +329,10 @@ See oa:DataPositionSelector and oa:oa:TextPositionSelector.</rdfs:comment>
     <!-- http://www.w3.org/ns/openannotation/core/exact -->
 
     <owl:DatatypeProperty rdf:about="&oa;exact">
-        <rdfs:label>exact</rdfs:label>
-        <rdfs:comment>A copy of the text which is being selected, after normalization.</rdfs:comment>
+        <rdfs:label xml:lang="en">exact</rdfs:label>
+        <rdfs:comment xml:lang="en">A copy of the text which is being selected, after normalization.
+
+See oa:TextQuoteSelector.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Selector"/>
     </owl:DatatypeProperty>
@@ -340,8 +342,10 @@ See oa:DataPositionSelector and oa:oa:TextPositionSelector.</rdfs:comment>
     <!-- http://www.w3.org/ns/openannotation/core/prefix -->
 
     <owl:DatatypeProperty rdf:about="&oa;prefix">
-        <rdfs:label>prefix</rdfs:label>
-        <rdfs:comment>A snippet of text that occurs immediately before the text which is being selected.</rdfs:comment>
+        <rdfs:label xml:lang="en">prefix</rdfs:label>
+        <rdfs:comment xml:lang="en">A snippet of text that occurs immediately before the text which is being selected.
+
+See oa:TextQuoteSelector.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Selector"/>
     </owl:DatatypeProperty>
@@ -366,10 +370,10 @@ There MAY be exactly 1 oa:serializedAt property per Annotation, and MUST NOT be 
     <!-- http://www.w3.org/ns/openannotation/core/start -->
 
     <owl:DatatypeProperty rdf:about="&oa;start">
-        <rdfs:label>start</rdfs:label>
+        <rdfs:label xml:lang="en">start</rdfs:label>
         <rdfs:comment xml:lang="en">The starting position of the segment of text or bytes. The first character/byte in the full text/stream is position 0. The character/byte indicated at position oa:start is included within the selected segment. 
 
-See oa:DataPositionSelector and oa:oa:TextPositionSelector.</rdfs:comment>
+See oa:DataPositionSelector and oa:TextPositionSelector.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Selector"/>
@@ -395,8 +399,10 @@ See oa:CssStyle.</rdfs:comment>
     <!-- http://www.w3.org/ns/openannotation/core/suffix -->
 
     <owl:DatatypeProperty rdf:about="&oa;suffix">
-        <rdfs:label>suffix</rdfs:label>
-        <rdfs:comment>The snippet of text that occurs immediately after the text which is being selected. </rdfs:comment>
+        <rdfs:label xml:lang="en">suffix</rdfs:label>
+        <rdfs:comment xml:lang="en">The snippet of text that occurs immediately after the text which is being selected. 
+
+See oa:TextQuoteSelector.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Selector"/>
     </owl:DatatypeProperty>
@@ -406,7 +412,7 @@ See oa:CssStyle.</rdfs:comment>
     <!-- http://www.w3.org/ns/openannotation/core/when -->
 
     <owl:DatatypeProperty rdf:about="&oa;when">
-        <rdfs:label>when</rdfs:label>
+        <rdfs:label xml:lang="en">when</rdfs:label>
         <rdfs:comment xml:lang="en">The timestamp at which the Source resource should be interpreted for the Annotation, typically the time that the Annotation was created.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
@@ -839,7 +845,8 @@ There MUST be at least one of oa:cachedSource or oa:when specified. If there is 
 
     <owl:NamedIndividual rdf:about="&oa;motivationScheme">
         <rdf:type rdf:resource="&skos;ConceptScheme"/>
-        <rdfs:comment>The concept scheme for Open Annotation Motivations</rdfs:comment>
+        <rdfs:label xml:lang="en">motivationScheme</rdfs:label>
+        <rdfs:comment xml:lang="en">The concept scheme for Open Annotation Motivations</rdfs:comment>
     </owl:NamedIndividual>
     
 
