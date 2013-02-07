@@ -2,6 +2,7 @@
 
 
 <!DOCTYPE rdf:RDF [
+    <!ENTITY prov "http://www.w3.org/ns/prov#" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
@@ -11,9 +12,10 @@
 ]>
 
 
-<rdf:RDF xmlns="http://www.w3.org/ns/openannotation/core/"
-     xml:base="http://www.w3.org/ns/openannotation/core/"
+<rdf:RDF xmlns="http://www.w3.org/ns/openannotation/core"
+     xml:base="http://www.w3.org/ns/openannotation/core"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:oa="http://www.w3.org/ns/openannotation/core/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
@@ -72,7 +74,7 @@
         <rdfs:comment>The object of the relationship is a resource that identifies the agent responsible for creating the Annotation. This may be either a human or software agent. </rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Annotation"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
+        <rdfs:subPropertyOf rdf:resource="&prov;wasAttributedTo"/>
     </owl:ObjectProperty>
     
 
@@ -106,7 +108,7 @@
         <rdfs:label>equivalentTo</rdfs:label>
         <rdfs:comment>The subject and object resources of the oa:equivalentTo relationship represent the same resource, but potentially have different metadata such as oa:serializedBy, oa:serializedAt and serialization format.  oa:equivalentTo is a symmetrical and transitive relationship; if A oa:equivalentTo B, then it is also true that B oa:equivalent A; and that if B oa:equivalentTo C, then it is also true that A oa:equivalentTo C. </rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#alternateOf"/>
+        <rdfs:subPropertyOf rdf:resource="&prov;alternateOf"/>
     </owl:ObjectProperty>
     
 
@@ -209,7 +211,7 @@
         <rdfs:comment>The object of the relationship is the agent, likely software, responsible for generating the serialization of the Annotation&apos;s graph. </rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Annotation"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
+        <rdfs:subPropertyOf rdf:resource="&prov;wasAttributedTo"/>
     </owl:ObjectProperty>
     
 
