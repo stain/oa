@@ -108,8 +108,10 @@ It is RECOMMENDED to use these and other FOAF terms to describe agents: foaf:Per
     <!-- http://www.w3.org/ns/openannotation/core/default -->
 
     <owl:ObjectProperty rdf:about="&oa;default">
-        <rdfs:label>default</rdfs:label>
-        <rdfs:comment>The constituent resource of a oa:Choice to use as a default option, if there is no other means to determine which would be most appropriate.</rdfs:comment>
+        <rdfs:label xml:lang="en">default</rdfs:label>
+        <rdfs:comment xml:lang="en">The constituent resource of a oa:Choice to use as a default option, if there is no other means to determine which would be most appropriate.
+
+There SHOULD be exactly 1 default relationship for each Choice.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;Choice"/>
         <rdfs:subPropertyOf rdf:resource="&oa;item"/>
@@ -151,8 +153,10 @@ There is no OA class provided for &quot;Body&quot; as a body might be a target o
     <!-- http://www.w3.org/ns/openannotation/core/hasScope -->
 
     <owl:ObjectProperty rdf:about="&oa;hasScope">
-        <rdfs:label>hasScope</rdfs:label>
-        <rdfs:comment>The relationship between a Specific Resource and the resource that provides the scope or context for it in this Annotation.</rdfs:comment>
+        <rdfs:label xml:lang="en">hasScope</rdfs:label>
+        <rdfs:comment xml:lang="en">The relationship between a Specific Resource and the resource that provides the scope or context for it in this Annotation.
+
+There MAY be 0 or more hasScope relationships for each Specific Resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;SpecificResource"/>
     </owl:ObjectProperty>
@@ -222,8 +226,10 @@ There is no OA class provided for &quot;Target&quot; as a target might be a body
     <!-- http://www.w3.org/ns/openannotation/core/item -->
 
     <owl:ObjectProperty rdf:about="&oa;item">
-        <rdfs:label>item</rdfs:label>
-        <rdfs:comment>The relationship between a multiplicity construct node and its constituent resources.</rdfs:comment>
+        <rdfs:label xml:lang="en">item</rdfs:label>
+        <rdfs:comment xml:lang="en">The relationship between a multiplicity construct node and its constituent resources.
+
+There MUST be 1 or more item relationships for each multiplicity construct oa:Choice, oa:Composite and oa:List.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&rdfs;member"/>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:ObjectProperty>
@@ -365,8 +371,12 @@ See oa:DataPositionSelector and oa:oa:TextPositionSelector.</rdfs:comment>
     <!-- http://www.w3.org/ns/openannotation/core/styleClass -->
 
     <owl:DatatypeProperty rdf:about="&oa;styleClass">
-        <rdfs:label>annotatedAt</rdfs:label>
-        <rdfs:comment>The string name of the class used in the CSS description that should be applied to the Specific Resource.</rdfs:comment>
+        <rdfs:label xml:lang="en">annotatedAt</rdfs:label>
+        <rdfs:comment xml:lang="en">The string name of the class used in the CSS description that should be applied to the Specific Resource.
+
+There MAY be 0 or more styleClass properties on a Specific Resource.
+
+See oa:CssStyle.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
         <rdfs:domain rdf:resource="&oa;SpecificResource"/>
     </owl:DatatypeProperty>
@@ -422,9 +432,15 @@ This &quot;aboutness&quot; may be further clarified or extended to notions such 
     <!-- http://www.w3.org/ns/openannotation/core/Choice -->
 
     <owl:Class rdf:about="&oa;Choice">
-        <rdfs:label>Choice</rdfs:label>
+        <rdfs:label xml:lang="en">Choice</rdfs:label>
         <rdfs:subClassOf rdf:resource="&rdf;Alt"/>
-        <rdfs:comment>A multiplicity construct that conveys to a consuming application that it should select one of the constituent resources to display to the user, and not render all of them. </rdfs:comment>
+        <rdfs:comment xml:lang="en">A multiplicity construct that conveys to a consuming application that it should select one of the constituent resources to display to the user, and not render/use all of them. 
+
+oa:Choice can be used as the object of the object of the oa:hasBody, oa:hasTarget, oa:hasSelector, oa:hasState, oa:styledBy and oa:hasScope relationships, 
+
+There MUST be 1 or more oa:item relationships for each oa:Choice.
+
+There SHOULD be exactly 1 default relationship for each Choice.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -435,7 +451,11 @@ This &quot;aboutness&quot; may be further clarified or extended to notions such 
     <owl:Class rdf:about="&oa;Composite">
         <rdfs:label>Composite</rdfs:label>
         <rdfs:subClassOf rdf:resource="&rdf;Bag"/>
-        <rdfs:comment>A multiplicity construct that conveys to a consuming application that all of the constituent resources are required for the Annotation to be correctly interpreted. </rdfs:comment>
+        <rdfs:comment xml:lang="en">A multiplicity construct that conveys to a consuming application that all of the constituent resources are required for the Annotation to be correctly interpreted. 
+
+oa:Composite can be used as the object of the object of the oa:hasBody, oa:hasTarget, oa:hasSelector, oa:hasState, oa:styledBy and oa:hasScope relationships, 
+
+There MUST be 2 or more oa:item relationships for each oa:Composite.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -444,9 +464,13 @@ This &quot;aboutness&quot; may be further clarified or extended to notions such 
     <!-- http://www.w3.org/ns/openannotation/core/CssStyle -->
 
     <owl:Class rdf:about="&oa;CssStyle">
-        <rdfs:label>CssStyle</rdfs:label>
+        <rdfs:label xml:lang="en">CssStyle</rdfs:label>
         <rdfs:subClassOf rdf:resource="&oa;Style"/>
-        <rdfs:comment>A resource which describes styles for resources participating in the Annotation using CSS.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A resource which describes styles for resources participating in the Annotation using CSS.
+
+Specific Resources MAY be assigned a CSS style class using oa:styleClass.
+
+The CSS resource MAY have its own dereferencable URI that provides the information. For example, &quot;Style1&quot; in the diagram below might actually have the URI &quot;http://www.example.com/styles/annotations.css&quot;. It MAY be embedded within the Annotation using the inline constructions described in Embedding Resources.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -502,9 +526,15 @@ There MUST be exactly 1 rdf:value property per HttpRequestState, containing HTTP
     <!-- http://www.w3.org/ns/openannotation/core/List -->
 
     <owl:Class rdf:about="&oa;List">
-        <rdfs:label>List</rdfs:label>
+        <rdfs:label xml:lang="en">List</rdfs:label>
         <rdfs:subClassOf rdf:resource="&oa;Composite"/>
-        <rdfs:comment>A multiplicity construct that conveys to a consuming application that all of the constituent resources are required for the Annotation to be correctly interpreted, and in a particular order. </rdfs:comment>
+        <rdfs:comment xml:lang="en">A multiplicity construct that conveys to a consuming application that all of the constituent resources are required for the Annotation to be correctly interpreted, and in a particular order. 
+
+oa:List can be used as the object of the object of the oa:hasBody, oa:hasTarget, oa:hasSelector, oa:hasState, oa:styledBy and oa:hasScope relationships, 
+
+There MUST be 2 or more oa:item relationships for each oa:List, with their order defined using the rdf:List construct of rdf:first/rdf:rest/rdf:nil.
+
+All the elements of the list should also be declared using oa:item, and each of the oa:items should appear at least once in the list.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
@@ -588,7 +618,13 @@ This class is not used directly in Annotations, only its subclasses are.</rdfs:c
 
     <owl:Class rdf:about="&oa;Style">
         <rdfs:label xml:lang="en">Style</rdfs:label>
-        <rdfs:comment>A resource which describes the style in which the selection or resource should be rendered.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A resource which describes the style in which the selection or resource should be rendered, indicated with oa:styledBy from an oa:Annotation.
+
+This class is not used directly in Annotations, only its subclasses are.
+
+The content of the resource provides the rendering hints about the Annotation&apos;s constituent resources. 
+
+The Specifier&apos;s description MAY be conveyed as an external or embedded resource (cnt:Content), or as RDF properties within the graph. The description SHOULD use existing standards whenever possible. If the Specifier has an HTTP URI, then its description, and only its description, MUST be returned when the URI is dereferenced.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/openannotation/core/"/>
     </owl:Class>
     
