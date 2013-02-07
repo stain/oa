@@ -16,3 +16,5 @@ specification at http://www.openannotation.org/spec/core/
 The owl:imports lines are included for convenience while
 editing the ontology in Protege, and *SHOULD NOT* be included
 in the published OWL.
+
+The diff\*.ttl files shows latest changes to the OWL.
