@@ -18,4 +18,3 @@ the published OWL. You may want to include these to ease
 editing in tools like Protege and avoid redeclaring classes
 of skos and rdfs.
 
-The diff\*.ttl files shows latest changes to the OWL.
