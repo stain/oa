@@ -34,10 +34,10 @@
      xmlns:dctypes="http://purl.org/dc/dcmitype/"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#">
     <owl:Ontology rdf:about="http://www.w3.org/ns/oa#">
-        <owl:versionInfo>core/20130205</owl:versionInfo>
-        <dcterms:modified rdf:datatype="&xsd;dateTime">2013-02-08T09:09:00+00:00</dcterms:modified>
-        <rdfs:seeAlso rdf:resource="http://www.openannotation.org/spec/core/20130205/index.html"/>
-        <owl:versionIRI rdf:resource="http://www.openannotation.org/spec/core/20130205/schema.xml"/>
+        <owl:versionInfo>core/20130208</owl:versionInfo>
+        <dcterms:modified rdf:datatype="&xsd;dateTime">2013-02-11T16:30:00+00:00</dcterms:modified>
+        <rdfs:seeAlso rdf:resource="http://www.openannotation.org/spec/core/20130208/index.html"/>
+        <owl:versionIRI rdf:resource="http://www.openannotation.org/spec/core/20130208/oa.owl"/>
         <!--
         <owl:imports rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         <owl:imports rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
