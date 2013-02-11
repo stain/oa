@@ -749,7 +749,7 @@ There MUST be at least one of oa:cachedSource or oa:when specified. If there is 
 
     <owl:NamedIndividual rdf:about="&oa;bookmarking">
         <rdf:type rdf:resource="&oa;Motivation"/>
-        <skos:prefLabel xml:lang="en">Editing</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Bookmarking</skos:prefLabel>
         <rdfs:comment xml:lang="en">The motivation that represents the creation of a bookmark to the target resources or recorded point or points within one or more resources. For example, an Annotation that bookmarks the point in a text where the reader finished reading. Bookmark Annotations may or may not have a Body resource.</rdfs:comment>
         <skos:inScheme rdf:resource="&oa;motivationScheme"/>
     </owl:NamedIndividual>
@@ -793,7 +793,7 @@ There MUST be at least one of oa:cachedSource or oa:when specified. If there is 
 
     <owl:NamedIndividual rdf:about="&oa;editing">
         <rdf:type rdf:resource="&oa;Motivation"/>
-        <skos:prefLabel xml:lang="en">Bookmarking</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Editing</skos:prefLabel>
         <rdfs:comment xml:lang="en">The motivation that represents a request for a modification or edit to the target resource. For example, an Annotation that requests a typo to be corrected.</rdfs:comment>
         <skos:inScheme rdf:resource="&oa;motivationScheme"/>
     </owl:NamedIndividual>
