@@ -51,11 +51,12 @@ Note that OWL imports are disabled in the published version in order to reduce e
 An Annotation is considered to be a set of connected resources, typically including a body and target, where the body is somehow about the target. The full model supports additional functionality, enabling semantic annotations, embedding content, selecting segments of resources, choosing the appropriate representation of a resource and providing styling hints for consuming clients.</dc:description>
         <rdfs:seeAlso rdf:resource="http://www.openannotation.org/spec/core/20130208/index.html"/>
         <owl:versionIRI rdf:resource="http://www.openannotation.org/spec/core/20130208/oa.owl"/>
-        <!-- Disabled to reduce implications from external ontologies -->
+        <!-- Disabled to reduce implications from external ontologies
         <owl:imports rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         <owl:imports rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/prov-o#"/>
+        -->
     </owl:Ontology>
     
     <!-- 
