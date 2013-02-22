@@ -38,6 +38,8 @@
         <owl:versionInfo>0.9.20130208</owl:versionInfo>
         <dc:title xml:lang="en">Open Annotation Data Model</dc:title>
         <dc:creator xml:lang="en">Robert Sanderson</dc:creator>
+        <dc:creator xml:lang="it">Paolo Ciccarese</dc:creator>
+        <dc:creator xml:lang="vls">Herbert Van de Sompel</dc:creator>
         <dc:contributor xml:lang="en">Stian Soiland-Reyes</dc:contributor>
         <rdfs:comment xml:lang="en">The Open Annotation Core Data Model specifies an interoperable framework for creating associations between related resources, annotations, using a methodology that conforms to the Architecture of the World Wide Web.
 
@@ -47,44 +49,15 @@ Note that OWL imports are disabled in the published version in order to reduce e
         <dc:description xml:lang="en">The Open Annotation Core Data Model specifies an interoperable framework for creating associations between related resources, annotations, using a methodology that conforms to the Architecture of the World Wide Web. Open Annotations can easily be shared between platforms, with sufficient richness of expression to satisfy complex requirements while remaining simple enough to also allow for the most common use cases, such as attaching a piece of text to a single web resource.
 
 An Annotation is considered to be a set of connected resources, typically including a body and target, where the body is somehow about the target. The full model supports additional functionality, enabling semantic annotations, embedding content, selecting segments of resources, choosing the appropriate representation of a resource and providing styling hints for consuming clients.</dc:description>
-        <dc:creator xml:lang="it">Paolo Ciccarese</dc:creator>
-        <dc:creator xml:lang="vls">Herbert Van de Sompel</dc:creator>
         <rdfs:seeAlso rdf:resource="http://www.openannotation.org/spec/core/20130208/index.html"/>
         <owl:versionIRI rdf:resource="http://www.openannotation.org/spec/core/20130208/oa.owl"/>
+        <!-- Disabled to reduce implications from external ontologies -->
         <owl:imports rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
         <owl:imports rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/prov-o#"/>
     </owl:Ontology>
     
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <owl:AnnotationProperty rdf:about="&dc;creator"/>
-    <owl:AnnotationProperty rdf:about="&dc;contributor"/>
-    <owl:AnnotationProperty rdf:about="&dc;description"/>
-    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Datatypes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //

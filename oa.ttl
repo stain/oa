@@ -13,7 +13,6 @@
 @prefix trig: <http://www.w3.org/2004/03/trix/rdfg-1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dctypes: <http://purl.org/dc/dcmitype/> .
-@base <http://www.w3.org/ns/oa#> .
 
 <http://www.w3.org/ns/oa#> rdf:type owl:Ontology ;
                            
@@ -23,7 +22,7 @@
                            
                            dc:title "Open Annotation Data Model"@en ;
                            
-                           dc:creator "Robert Sanderson"@en ;
+                           dc:creator "Robert Sanderson"@en, "Paolo Ciccarese"@it, "Herbert Van de Sompel"@vls ;
                            
                            dc:contributor "Stian Soiland-Reyes"@en ;
                            
@@ -37,50 +36,18 @@ Note that OWL imports are disabled in the published version in order to reduce e
 
 An Annotation is considered to be a set of connected resources, typically including a body and target, where the body is somehow about the target. The full model supports additional functionality, enabling semantic annotations, embedding content, selecting segments of resources, choosing the appropriate representation of a resource and providing styling hints for consuming clients."""@en ;
                            
-                           dc:creator "Paolo Ciccarese"@it ,
-                                      "Herbert Van de Sompel"@vls ;
                            
                            rdfs:seeAlso <http://www.openannotation.org/spec/core/20130208/index.html> ;
                            
                            owl:versionIRI <http://www.openannotation.org/spec/core/20130208/oa.owl> ;
                            
-                           owl:imports rdf:null ,
-                                       rdfs:null ,
-                                       <http://www.w3.org/2004/02/skos/core> ,
-                                       <http://www.w3.org/ns/prov-o#> .
+## Disabled for improved interoperability                           
+#                           owl:imports rdf: ,
+#                                       rdfs: ,
+#                                       <http://www.w3.org/2004/02/skos/core> ,
+#                                       <http://www.w3.org/ns/prov-o#> ;
 
-
-#################################################################
-#
-#    Annotation properties
-#
-#################################################################
-
-
-dc:creator rdf:type owl:AnnotationProperty .
-
-
-
-dc:contributor rdf:type owl:AnnotationProperty .
-
-
-
-dc:description rdf:type owl:AnnotationProperty .
-
-
-
-rdfs:comment rdf:type owl:AnnotationProperty .
-
-
-
-
-
-#################################################################
-#
-#    Datatypes
-#
-#################################################################
-
+.
 
 
 
