@@ -33,22 +33,24 @@
     "first":         {"@type":"@id", "@id" : "rdf:first"},
     "rest":          {"@type":"@id", "@id" : "rdf:rest", "@container" : "@list"},
 
+    "annotatedAt" :  { "@type": "xsd:dateTimeStamp", "@id": "oa:annotatedAt" },
+    "end" :          { "@type": "xsd:nonNegativeInteger", "@id": "oa:end" },
+    "exact" :        "oa:exact",
+    "prefix" :       "oa:prefix",
+    "serializedAt" : { "@type": "xsd:dateTimeStamp", "@id": "oa:serializedAt" },
+    "start" :        { "@type": "xsd:nonNegativeInteger", "@id": "oa:start" },
+    "styleClass" :   "oa:styleClass",
+    "suffix" :       "oa:suffix",
+    "when" :         { "@type": "xsd:dateTimeStamp", "@id": "oa:when" },
+
     "chars" :        "cnt:chars",
     "bytes" :        "cnt:bytes",
     "format" :       "dc:format",
-    "annotatedAt" :  "oa:annotatedAt",
-    "serializedAt" : "oa:serializedAt",
-    "when" :         "oa:when",
     "value" :        "rdf:value",
-    "start" :        "oa:start",
-    "end" :          "oa:end",
-    "exact" :        "oa:exact",
-    "prefix" :       "oa:prefix",
-    "suffix" :       "oa:suffix",
     "label" :        "rdfs:label",
     "name" :         "foaf:name",
-    "mbox" :         "foaf:mbox",
-    "styleClass" :        "oa:styleClass"
+    "mbox" :         "foaf:mbox"
+
   },
   "@graph": [
     {
