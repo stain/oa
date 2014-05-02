@@ -434,7 +434,7 @@ See oa:DataPositionSelector and oa:TextPositionSelector."""@en ;
 
 oa:styleClass rdf:type owl:DatatypeProperty ;
               
-              rdfs:label "annotatedAt"@en ;
+              rdfs:label "styleClass"@en ;
               
               rdfs:comment """The string name of the class used in the CSS description that should be applied to the Specific Resource.
 

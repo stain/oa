@@ -1062,7 +1062,7 @@
       },
       "rdfs:label": {
         "@language": "en",
-        "@value": "annotatedAt"
+        "@value": "styleClass"
       }
     },
     {

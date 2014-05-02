@@ -376,7 +376,7 @@ See oa:DataPositionSelector and oa:TextPositionSelector.</rdfs:comment>
     <!-- http://www.w3.org/ns/oa#styleClass -->
 
     <owl:DatatypeProperty rdf:about="&oa;styleClass">
-        <rdfs:label xml:lang="en">annotatedAt</rdfs:label>
+        <rdfs:label xml:lang="en">styleClass</rdfs:label>
         <rdfs:comment xml:lang="en">The string name of the class used in the CSS description that should be applied to the Specific Resource.
 
 There MAY be 0 or more styleClass properties on a Specific Resource.
