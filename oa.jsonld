@@ -46,6 +46,7 @@
     "chars" :        "cnt:chars",
     "bytes" :        "cnt:bytes",
     "format" :       "dc:format",
+    "language" :     "dc:language",
     "value" :        "rdf:value",
     "label" :        "rdfs:label",
     "name" :         "foaf:name",
